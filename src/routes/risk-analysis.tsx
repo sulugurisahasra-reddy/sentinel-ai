@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { Portal } from "@/components/sentinel/portal";
+export const Route=createFileRoute("/risk-analysis")({head:()=>({meta:[{title:"Risk Analysis | MPLADS AI Sentinel"},{name:"description",content:"Explainable project risk score analysis."},{property:"og:title",content:"MPLADS Risk Analysis"},{property:"og:description",content:"Understand simulated monitoring risk factors."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}),component:()=> <Portal view="risk"/>});
