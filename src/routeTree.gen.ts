@@ -10,33 +10,140 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlertsRouteImport } from './routes/alerts'
+import { Route as AnomalyDetectionRouteImport } from './routes/anomaly-detection'
+import { Route as GeographicViewRouteImport } from './routes/geographic-view'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as RiskAnalysisRouteImport } from './routes/risk-analysis'
+import { Route as VerificationQueueRouteImport } from './routes/verification-queue'
+import { Route as ProjectsProjectIdRouteImport } from './routes/projects.$projectId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlertsRoute = AlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnomalyDetectionRoute = AnomalyDetectionRouteImport.update({
+  id: '/anomaly-detection',
+  path: '/anomaly-detection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GeographicViewRoute = GeographicViewRouteImport.update({
+  id: '/geographic-view',
+  path: '/geographic-view',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RiskAnalysisRoute = RiskAnalysisRouteImport.update({
+  id: '/risk-analysis',
+  path: '/risk-analysis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerificationQueueRoute = VerificationQueueRouteImport.update({
+  id: '/verification-queue',
+  path: '/verification-queue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
+  id: '/$projectId',
+  path: '/$projectId',
+  getParentRoute: () => ProjectsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/anomaly-detection': typeof AnomalyDetectionRoute
+  '/geographic-view': typeof GeographicViewRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/reports': typeof ReportsRoute
+  '/risk-analysis': typeof RiskAnalysisRoute
+  '/verification-queue': typeof VerificationQueueRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/anomaly-detection': typeof AnomalyDetectionRoute
+  '/geographic-view': typeof GeographicViewRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/reports': typeof ReportsRoute
+  '/risk-analysis': typeof RiskAnalysisRoute
+  '/verification-queue': typeof VerificationQueueRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/anomaly-detection': typeof AnomalyDetectionRoute
+  '/geographic-view': typeof GeographicViewRoute
+  '/projects': typeof ProjectsRouteWithChildren
+  '/reports': typeof ReportsRoute
+  '/risk-analysis': typeof RiskAnalysisRoute
+  '/verification-queue': typeof VerificationQueueRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/alerts'
+    | '/anomaly-detection'
+    | '/geographic-view'
+    | '/projects'
+    | '/reports'
+    | '/risk-analysis'
+    | '/verification-queue'
+    | '/projects/$projectId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/alerts'
+    | '/anomaly-detection'
+    | '/geographic-view'
+    | '/projects'
+    | '/reports'
+    | '/risk-analysis'
+    | '/verification-queue'
+    | '/projects/$projectId'
+  id:
+    | '__root__'
+    | '/'
+    | '/alerts'
+    | '/anomaly-detection'
+    | '/geographic-view'
+    | '/projects'
+    | '/reports'
+    | '/risk-analysis'
+    | '/verification-queue'
+    | '/projects/$projectId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlertsRoute: typeof AlertsRoute
+  AnomalyDetectionRoute: typeof AnomalyDetectionRoute
+  GeographicViewRoute: typeof GeographicViewRoute
+  ProjectsRoute: typeof ProjectsRouteWithChildren
+  ReportsRoute: typeof ReportsRoute
+  RiskAnalysisRoute: typeof RiskAnalysisRoute
+  VerificationQueueRoute: typeof VerificationQueueRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +155,86 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/alerts': {
+      id: '/alerts'
+      path: '/alerts'
+      fullPath: '/alerts'
+      preLoaderRoute: typeof AlertsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/anomaly-detection': {
+      id: '/anomaly-detection'
+      path: '/anomaly-detection'
+      fullPath: '/anomaly-detection'
+      preLoaderRoute: typeof AnomalyDetectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/geographic-view': {
+      id: '/geographic-view'
+      path: '/geographic-view'
+      fullPath: '/geographic-view'
+      preLoaderRoute: typeof GeographicViewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/risk-analysis': {
+      id: '/risk-analysis'
+      path: '/risk-analysis'
+      fullPath: '/risk-analysis'
+      preLoaderRoute: typeof RiskAnalysisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verification-queue': {
+      id: '/verification-queue'
+      path: '/verification-queue'
+      fullPath: '/verification-queue'
+      preLoaderRoute: typeof VerificationQueueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$projectId': {
+      id: '/projects/$projectId'
+      path: '/$projectId'
+      fullPath: '/projects/$projectId'
+      preLoaderRoute: typeof ProjectsProjectIdRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
   }
 }
 
+interface ProjectsRouteChildren {
+  ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsProjectIdRoute: ProjectsProjectIdRoute,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlertsRoute: AlertsRoute,
+  AnomalyDetectionRoute: AnomalyDetectionRoute,
+  GeographicViewRoute: GeographicViewRoute,
+  ProjectsRoute: ProjectsRouteWithChildren,
+  ReportsRoute: ReportsRoute,
+  RiskAnalysisRoute: RiskAnalysisRoute,
+  VerificationQueueRoute: VerificationQueueRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
