@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { Portal } from "@/components/sentinel/portal";
+export const Route=createFileRoute("/reports")({head:()=>({meta:[{title:"Reports | MPLADS AI Sentinel"},{name:"description",content:"Generate filtered MPLADS monitoring reports."},{property:"og:title",content:"MPLADS Monitoring Reports"},{property:"og:description",content:"Filtered demo reports for official monitoring."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}),component:()=> <Portal view="reports"/>});
